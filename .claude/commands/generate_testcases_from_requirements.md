@@ -4,7 +4,7 @@ skills:
   - rbt_manual_testing
 ---
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.agent/skills/rbt_manual_testing/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này. Sử dụng **Mode QUICK** của skill.
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.claude/skills/rbt_manual_testing/SKILL.md`) trước khi bắt đầu thực hiện tác vụ này. Sử dụng **Mode QUICK** của skill.
 
 # Workflow: Sinh Manual Test Cases Nhanh từ Requirements
 
@@ -37,11 +37,13 @@ Workflow này sử dụng **Mode QUICK** của skill `rbt_manual_testing` để 
    - Nối tiếp vào cùng bảng TC, không tách file riêng
    - Expected result: "thống nhất với design [tên component]" nếu không có design input
 5. **Sinh test cases đầy đủ fields:**
-   - TC ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
-   - Module
-   - Test Scenario / Test Case Title
-   - Pre-conditions
-   - Test Steps (đánh số)
+   - ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
+   - Function Name (= Module)
+   - Category (= Sub-module)
+   - Risk Level
+   - Test Scenario (bắt đầu bằng "Check..." cho functional TCs; dùng prefix `[UI Visual]` cho visual TCs)
+   - Precondition
+   - Steps (đánh số)
    - Expected Results (đánh số tương ứng)
    - Test Data (**phải cụ thể**, không placeholder)
    - Priority (Critical / High / Medium / Low)
@@ -50,7 +52,7 @@ Workflow này sử dụng **Mode QUICK** của skill `rbt_manual_testing` để 
 ## Bảng Output
 
 ```
-| TC ID | Module | Test Scenario | Pre-Condition | Test Steps | Test Data | Expected Result | Priority |
+| ID | Function Name | Category | Risk Level | Test Scenario | Precondition | Steps | Expected Results | Test Data | Priority |
 ```
 
 ## Quy tắc quan trọng
@@ -58,7 +60,7 @@ Workflow này sử dụng **Mode QUICK** của skill `rbt_manual_testing` để 
 - Test Data phải cụ thể: `test_login_01@domain.com`, không phải "email hợp lệ"
 - Phải bao gồm cả Positive, Negative, Boundary, và Edge cases
 - Mỗi trường input phải có validation TCs riêng (không gộp nhiều trường vào 1 TC)
-- TC ID theo format thống nhất do user quy ước hoặc mặc định `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`
+- ID theo format thống nhất do user quy ước hoặc mặc định `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`
 - Nếu quá nhiều TCs → chia thành Part 1, Part 2 và hỏi user
 
 ## Khi nào chuyển sang FULL RBT

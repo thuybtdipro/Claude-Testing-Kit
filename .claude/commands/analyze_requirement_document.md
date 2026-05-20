@@ -1,20 +1,20 @@
 ---
-description: Phân tích requirement document (Jira ticket, .doc, user story) — sinh tài liệu phân tích chi tiết, KHÔNG sinh test cases.
+description: Phân tích requirement document (Backlog ticket, .doc, user story) — sinh tài liệu phân tích chi tiết, KHÔNG sinh test cases.
 skills:
   - requirements_analyzer
 ---
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`requirements_analyzer`** (tại `.agent/skills/requirements_analyzer/SKILL.md`) để hiểu cách phân tích yêu cầu chuẩn trước khi bắt đầu.
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`requirements_analyzer`** (tại `.claude/skills/requirements_analyzer/SKILL.md`) để hiểu cách phân tích yêu cầu chuẩn trước khi bắt đầu.
 
 # Workflow: Phân Tích Requirement Document
 
-Workflow này phân tích requirement documents (Jira tickets, .doc files, user stories, design mockups) và sinh ra một tài liệu phân tích chi tiết. **KHÔNG sinh test cases** — chỉ tập trung vào hiểu, phân rã, và phát hiện rủi ro/mơ hồ trong yêu cầu.
+Workflow này phân tích requirement documents (Backlog tickets, .doc files, user stories, design mockups) và sinh ra một tài liệu phân tích chi tiết. **KHÔNG sinh test cases** — chỉ tập trung vào hiểu, phân rã, và phát hiện rủi ro/mơ hồ trong yêu cầu.
 
 ## Khi nào sử dụng
 
-- User cung cấp Jira ticket (.doc) hoặc requirement document và yêu cầu "phân tích"
+- User cung cấp Backlog ticket (.doc) hoặc requirement document và yêu cầu "phân tích"
 - User muốn hiểu rõ scope, acceptance criteria, và dependencies trước khi viết test
-- User cần danh sách các điểm mơ hồ (ambiguities) để clarify với PO/BA
+- User cần danh sách các điểm mơ hồ (ambiguities) để clarify với user
 - User nói: "phân tích requirement", "review yêu cầu", "analyze this ticket"
 
 ## Đầu vào (Input)
@@ -23,7 +23,7 @@ Agent cần thu thập từ user:
 
 | # | Input | Bắt buộc | Mô tả |
 |---|---|---|---|
-| 1 | **Requirement document** | ✅ | File .doc, .md, URL Jira, hoặc text mô tả yêu cầu |
+| 1 | **Requirement document** | ✅ | File .doc, .md, URL Backlog, hoặc text mô tả yêu cầu |
 | 2 | **Mockup/Screenshot** | ⭕ Khuyến khích | Hình ảnh UI design, wireframe, hoặc screenshot hiện tại |
 | 3 | **Related tickets** | ⭕ Tùy chọn | Các ticket phụ thuộc hoặc liên quan (dependencies) |
 | 4 | **Context bổ sung** | ⭕ Tùy chọn | Thông tin về hệ thống hiện tại, business domain |
@@ -36,7 +36,7 @@ Agent cần thu thập từ user:
 ### Bước 1: Thu thập và đọc hiểu (Information Gathering)
 
 1. **Đọc requirement document** được user cung cấp (file .doc, .md, hoặc URL)
-   - Nếu file .doc format HTML (export từ Jira): parse HTML để trích xuất nội dung
+   - Nếu file .doc format HTML (export từ Backlog): parse HTML để trích xuất nội dung
    - Xác định: Ticket ID, Type, Priority, Status, Reporter, Assignee, Fix Version, Sprint, Labels
 2. **Đọc mockup/screenshot** nếu có — phân tích UI layout, components, fields
 3. **Kiểm tra related tickets** nếu có trong cùng thư mục hoặc được user cung cấp
@@ -158,7 +158,7 @@ Agent PHẢI xuất artifact theo cấu trúc sau:
 
 - ❌ **KHÔNG sinh test cases** — workflow này chỉ phân tích, không tạo TC
 - ❌ **KHÔNG tự đoán** business logic nếu document không nói rõ → đưa vào Ambiguities
-- ❌ **KHÔNG bỏ qua comments** trong Jira ticket — comments thường chứa thông tin quan trọng bổ sung
+- ❌ **KHÔNG bỏ qua comments** trong Backlog ticket — comments thường chứa thông tin quan trọng bổ sung
 - ✅ **PHẢI đọc related tickets** nếu được reference trong AC
 - ✅ **PHẢI phân tích mockup** chi tiết nếu được cung cấp (fields, layout, interactions)
 - ✅ **PHẢI ghi rõ inconsistency** giữa document và mockup

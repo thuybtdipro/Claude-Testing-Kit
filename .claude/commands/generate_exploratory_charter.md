@@ -5,7 +5,7 @@ skills:
   - requirements_analyzer
 ---
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.agent/skills/rbt_manual_testing/SKILL.md`) để hiểu cách đánh giá risk.
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.claude/skills/rbt_manual_testing/SKILL.md`) để hiểu cách đánh giá risk.
 
 # Workflow: Sinh Exploratory Testing Charter
 

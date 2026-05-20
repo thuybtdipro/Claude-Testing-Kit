@@ -1,6 +1,6 @@
 ---
 name: bug_reporter
-description: Skill chuẩn hóa bug reports — phân loại severity/priority, sinh steps to reproduce rõ ràng, format sẵn sàng paste vào Jira/TestRail.
+description: Skill chuẩn hóa bug reports — phân loại severity/priority, sinh steps to reproduce rõ ràng, format sẵn sàng paste vào Backlog.
 ---
 
 # Bug Reporter

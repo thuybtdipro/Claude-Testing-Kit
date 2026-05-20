@@ -10,7 +10,7 @@ skills:
 > AI phân tích fields, constraints, sinh bộ data đầy đủ (positive, negative, boundary, edge cases) với format sẵn sàng sử dụng.
 
 > **BẮT BUỘC (MANDATORY):** Trước khi bắt đầu, PHẢI nạp và đọc kỹ:
-> - **Skill:** `.agent/skills/test_data_generator/SKILL.md` — Quy tắc sinh data
+> - **Skill:** `.claude/skills/test_data_generator/SKILL.md` — Quy tắc sinh data
 
 ---
 

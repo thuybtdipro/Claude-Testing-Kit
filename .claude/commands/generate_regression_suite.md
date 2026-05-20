@@ -4,7 +4,7 @@ skills:
   - rbt_manual_testing
 ---
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.agent/skills/rbt_manual_testing/SKILL.md`) để hiểu cách đánh giá risk level.
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`rbt_manual_testing`** (tại `.claude/skills/rbt_manual_testing/SKILL.md`) để hiểu cách đánh giá risk level.
 
 # Workflow: Sinh Regression Suite
 

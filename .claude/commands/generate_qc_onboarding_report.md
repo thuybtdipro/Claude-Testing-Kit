@@ -5,7 +5,7 @@ skills:
   - requirements_analyzer
 ---
 
-> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`requirements_analyzer`** (tại `.agent/skills/requirements_analyzer/SKILL.md`) và **`rbt_manual_testing`** (tại `.agent/skills/rbt_manual_testing/SKILL.md`) trước khi bắt đầu.
+> **BẮT BUỘC (MANDATORY SKILL):** Bạn PHẢI nạp và đọc kỹ nội dung của skill **`requirements_analyzer`** (tại `.claude/skills/requirements_analyzer/SKILL.md`) và **`rbt_manual_testing`** (tại `.claude/skills/rbt_manual_testing/SKILL.md`) trước khi bắt đầu.
 
 # Workflow: Onboarding Report cho QC Mới
 
@@ -27,7 +27,7 @@ Cung cấp bất cứ thứ gì có sẵn — workflow hoạt động được v
 | **Tên dự án + mô tả ngắn** | ✅ | Hệ thống đang làm gì, đối tượng người dùng |
 | **Bộ TC hiện có** | ⚠️ Nên có | File `.md`, bảng Excel paste vào, hoặc mô tả "có khoảng X TCs cho module Y" |
 | **Requirements / Spec** | ⚠️ Nên có | Để so sánh với TC hiện có và phát hiện coverage gap |
-| **Danh sách bug đang mở** | ⚠️ Nên có | Từ Jira, TestRail, hoặc paste trực tiếp |
+| **Danh sách bug đang mở** | ⚠️ Nên có | Từ Backlog hoặc paste trực tiếp |
 | **Sprint hiện tại / Roadmap** | ❌ Optional | Để xác định tác vụ ưu tiên ngay |
 | **Role của QC mới** | ❌ Optional | Junior/Senior, chuyên manual hay cả automation — để điều chỉnh task list |
 
@@ -126,7 +126,7 @@ Những thứ **không có trong tài liệu** nhưng QC cần biết để làm
 - Q2: Có test environment riêng không, hay test chung với dev?
 - Q3: Bug nào đang được ưu tiên fix trong sprint này?
 
-### Hỏi PM / BA
+### Hỏi user
 - Q4: Sprint tiếp theo có release tính năng nào mới không?
 - Q5: Module Profile có được test trong sprint này không?
 

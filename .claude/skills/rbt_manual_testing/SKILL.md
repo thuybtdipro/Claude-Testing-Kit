@@ -30,7 +30,7 @@ Sử dụng skill này khi:
 - Phân rã hệ thống thành modules / features
 - Xây dựng traceability matrix
 - Áp dụng Risk-Based Testing (đánh giá rủi ro cho test cases)
-- Chuẩn hóa test cases sang bảng Markdown (Jira/Excel format)
+- Chuẩn hóa test cases sang bảng Markdown (Backlog/Excel format)
 - Sinh test cases nhanh từ requirements đơn giản
 
 **KHÔNG** sử dụng skill này khi:
@@ -103,20 +103,22 @@ Sinh test cases **nhanh, đủ chất lượng** từ requirements/user stories 
    - Visual state TCs (6 states: Normal, Focus, Filled, Error, Disabled, Loading) per field — đặt **TRƯỚC** logic TCs của cùng field
    - Expected result: "thống nhất với design [tên component]" nếu không có design input
 5. **Sinh test cases** với đầy đủ fields:
-   - TC ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
-   - Module
-   - Test Case Title / Test Scenario
-   - Pre-conditions
-   - Test Steps (đánh số)
+   - ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
+   - Function Name (= Module)
+   - Category (= Sub-module)
+   - Risk Level
+   - Test Scenario (bắt đầu bằng "Check..." cho functional TCs; dùng prefix `[UI Visual]` cho visual TCs)
+   - Precondition
+   - Steps (đánh số)
    - Expected Results (đánh số tương ứng)
    - Test Data (**phải cụ thể**, không placeholder)
    - Priority (Critical / High / Medium / Low)
-6. **Xuất ra bảng Markdown** chuẩn, sẵn sàng copy sang Excel/Jira
+6. **Xuất ra bảng Markdown** chuẩn, sẵn sàng copy sang Backlog/Excel
 
 ## Bảng Output
 
 ```
-| TC ID | Module | Test Scenario | Pre-Condition | Test Steps | Test Data | Expected Result | Priority |
+| ID | Function Name | Category | Risk Level | Test Scenario | Precondition | Steps | Expected Results | Test Data | Priority |
 ```
 
 ## Quy tắc Test Data (áp dụng cho cả 2 modes)
@@ -235,7 +237,7 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
      - Component state chưa rõ (disabled, hidden, conditional display)
    - Ghi nhận danh sách UI ambiguities → bổ sung vào câu hỏi Q&A ở bước 3
      (ví dụ: "Q5 — Disabled state của dropdown X trông như thế nào?")
-3. Đặt câu hỏi Q&A có đánh số thứ tự (Q1, Q2...) cho user/PO/BA giải đáp, mỗi câu kèm ngữ cảnh và assumption nếu không được trả lời
+3. Đặt câu hỏi Q&A có đánh số thứ tự (Q1, Q2...) cho user giải đáp, mỗi câu kèm ngữ cảnh và assumption nếu không được trả lời
 4. **DỪNG LẠI — Chờ user trả lời** các câu hỏi trước khi tiếp tục
 
 **Output:** Danh sách luồng + Ambiguities + Câu hỏi Q&A.
@@ -292,13 +294,16 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
    - **Medium Risk:** Test vừa phải
    - **Low Risk:** Test cơ bản, happy path
 2. Sinh test case với đầy đủ fields:
-   - Module / Sub-module
-   - Test Case Title
-   - Pre-conditions
-   - Test Steps (đánh số)
+   - ID (format: `[DỰ_ÁN]_[MODULE]_TC_[SỐ]`)
+   - Function Name (= Module)
+   - Category (= Sub-module)
+   - Risk Level
+   - Test Scenario (bắt đầu bằng "Check..." cho functional TCs; dùng prefix `[UI Visual]` cho visual TCs)
+   - Precondition
+   - Steps (đánh số)
    - Expected Results (đánh số tương ứng)
    - Test Data (**phải cụ thể**, không dùng placeholder chung chung)
-   - Priority
+   - Priority (Critical / High / Medium / Low)
 3. Bao phủ đa dạng:
    - Happy Path
    - Negative Path (giá trị biên, vượt ký tự)
@@ -326,17 +331,18 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
 
 ### Bước 6: Template Mapping (Chuẩn hóa Format)
 
-**Mục đích:** Đóng gói test cases thành bảng Markdown chuẩn, sẵn sàng copy sang Excel/Jira.
+**Mục đích:** Đóng gói test cases thành bảng Markdown chuẩn, sẵn sàng copy sang Backlog/Excel.
 
 **Agent phải:**
 1. Chuẩn hóa toàn bộ test cases vào bảng Markdown:
 
 ```
-| TC ID | Module | Risk Level | Test Title | Pre-Condition | Test Steps | Expected Result | Priority | Test Data |
+| ID | Function Name | Category | Risk Level | Test Scenario | Precondition | Steps | Expected Results | Test Data | Priority |
 ```
 
 2. Quy tắc bảng:
-   - TC ID theo format thống nhất (ví dụ: `CRM_CUST_TC_001`)
+   - ID theo format thống nhất (ví dụ: `CRM_CUST_TC_001`)
+   - Test Scenario: bắt đầu bằng "Check..." cho functional TCs; dùng prefix `[UI Visual]` cho visual TCs
    - Test Steps và Expected Result đánh số, dùng `<br>` xuống dòng trong cell
    - **TUYỆT ĐỐI không được bỏ sót** bất kỳ test case nào đã sinh ở Bước 5
    - Nếu quá dài → chia thành Part 1, Part 2... và hỏi user để tiếp tục
@@ -371,7 +377,7 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
 
 | Output | Mô tả |
 |--------|--------|
-| Bảng TC Markdown | Test Cases đầy đủ, sẵn sàng copy sang Excel/Jira |
+| Bảng TC Markdown | Test Cases đầy đủ, sẵn sàng copy sang Backlog/Excel |
 
 ### Mode FULL RBT
 
@@ -382,6 +388,6 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
 | 3 | Module Decomposition + Dependencies |
 | 4 | Traceability Matrix + High-Level Scenarios |
 | 5 | Test Cases chi tiết (Risk Level + Test Data) |
-| 6 | Bảng Markdown chuẩn (Jira/Excel ready) |
+| 6 | Bảng Markdown chuẩn (Backlog/Excel ready) |
 
 Tất cả output phải bằng **Tiếng Việt**, format **Markdown**, sử dụng **Artifact** nếu nội dung dài.
