@@ -256,7 +256,8 @@ Không cần dùng tất cả workflows ngay từ đầu. Làm quen theo từng 
 | Workflow | Mục đích |
 |----------|---------|
 | `/analyze_requirement_document` | Dùng **trước** khi viết TC — bắt ambiguity sớm, tránh viết TC sai |
-| `/generate_manual_testcases_rbt` | Core của kit — cả team phải thành thạo cái này trước tiên |
+| `/generate_testcases_from_requirements` | Sinh TC nhanh cho scope nhỏ, requirements đã rõ — 1 lượt, không checkpoint |
+| `/generate_manual_testcases_rbt` | Core của kit — dùng cho module phức tạp, cả team phải thành thạo |
 | `/update_testcases_from_requirements` | Dùng ngay khi spec thay đổi — spec thay đổi từ tuần 2 là bình thường |
 
 **Mục tiêu:** Có bộ TC đầu tiên + team biết cập nhật TC khi spec thay đổi mà không viết lại từ đầu.
