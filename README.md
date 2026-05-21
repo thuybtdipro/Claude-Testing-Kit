@@ -163,7 +163,6 @@ Chỉ định model khi mở session: `claude --model claude-sonnet-4-6`
 |---------|-------------|
 | `/analyze_requirement_document` | Phân tích Backlog ticket / doc — cross-check REQ↔AC, gợi ý bổ sung từ góc nhìn QC, phát hiện ambiguities. **Không sinh TC** |
 | `/generate_cross_module_test_plan` | Phân tích luồng đa module, sinh ma trận kết hợp (Pairwise) |
-| `/generate_requirements_from_website` | Truy cập URL → tự động phân tích UI và sinh requirements document |
 
 ### Thực thi & Theo dõi
 | Command | Khi nào dùng |

@@ -31,7 +31,6 @@ Gọi bằng `/tên_command` trong Claude Code.
 |---------|-------------|
 | `/analyze_requirement_document` | Phân tích Backlog ticket / doc — cross-check REQ↔AC, gợi ý bổ sung, phát hiện ambiguities — KHÔNG sinh TC |
 | `/generate_cross_module_test_plan` | Phân tích luồng đa module, sinh ma trận kết hợp (Pairwise) |
-| `/generate_requirements_from_website` | Phân tích URL web → sinh requirements document |
 
 ### Thực thi & Theo dõi
 | Command | Khi nào dùng |
