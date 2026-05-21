@@ -14,8 +14,7 @@ Workflow này phân tích requirement documents (Backlog tickets, .doc files, us
 
 - User cung cấp Backlog ticket (.doc) hoặc requirement document và yêu cầu "phân tích"
 - User muốn hiểu rõ scope, acceptance criteria, và dependencies trước khi viết test
-- User cần danh sách các điểm mơ hồ (ambiguities) để clarify với user
-- User nói: "phân tích requirement", "review yêu cầu", "analyze this ticket"
+- User cần danh sách các điểm mơ hồ (ambiguities) để clarify với team
 
 ## Đầu vào (Input)
 
@@ -52,6 +51,10 @@ Agent cần thu thập từ user:
    - Mô tả chi tiết từng AC
    - Bảng so sánh (nếu có cột mới, field mới, rule mới)
    - Phân biệt rõ **mặc định vs tùy chọn** (nếu applicable)
+   - **Cross-check REQ↔AC:** Liệt kê các REQ nào chưa có AC tương ứng → flag để QC confirm với PM
+   - **Gợi ý AC bổ sung** từ góc nhìn QC: negative cases, edge cases, error states mà PM chưa cover
+     (ví dụ: PM viết "đăng nhập thành công" → QC gợi ý: "email không tồn tại", "password sai", "account bị lock")
+   - **Output AC:** Danh sách AC đã chốt + gợi ý bổ sung → QC review và lưu vào `requirements/module-xx/qa-notes.md`
 
 ### Bước 3: Phân tích UI từ Mockup (nếu có)
 
@@ -118,8 +121,8 @@ Agent PHẢI xuất artifact theo cấu trúc sau:
 ## 1. Tổng Quan Ticket
 (Bảng metadata)
 
-## 2. User Story
-(As a... I want... So that...)
+## 2. User Story (nếu có trong spec)
+(Chỉ trích xuất nếu spec đã có sẵn User Story. Không tự sinh nếu thiếu.)
 
 ## 3. Phạm Vi Áp Dụng (Scope)
 (Bảng liệt kê modules/pages bị ảnh hưởng)
@@ -157,6 +160,8 @@ Agent PHẢI xuất artifact theo cấu trúc sau:
 ## Quy tắc quan trọng
 
 - ❌ **KHÔNG sinh test cases** — workflow này chỉ phân tích, không tạo TC
+- ❌ **KHÔNG tự sinh AC** nếu spec không có — chỉ cross-check và gợi ý bổ sung từ góc nhìn QC
+- ❌ **KHÔNG tự sinh User Story** nếu spec không có — chỉ trích xuất nếu đã có sẵn
 - ❌ **KHÔNG tự đoán** business logic nếu document không nói rõ → đưa vào Ambiguities
 - ❌ **KHÔNG bỏ qua comments** trong Backlog ticket — comments thường chứa thông tin quan trọng bổ sung
 - ✅ **PHẢI đọc related tickets** nếu được reference trong AC
