@@ -51,7 +51,7 @@ Agent cần thu thập từ user:
    - Đọc từng REQ → sinh AC tương ứng: happy path + negative + edge cases
    - Phân biệt rõ **mặc định vs tùy chọn** (nếu applicable)
    - Bao gồm các AC mà spec thường bỏ qua: error states, boundary conditions, concurrent access
-   - **Output AC:** Danh sách AC do QC extract → QC review và lưu vào `requirements/module-xx/qa-notes.md`
+   - **Output AC:** Danh sách AC do QC extract → QC review và lưu vào `requirements/[module]/ac.md`
 
    **AI phải trình bày AC theo mẫu sau:**
 
@@ -116,6 +116,10 @@ Với mỗi risk, ghi rõ:
 2. **Checklist AC** — Tóm tắt tất cả AC dạng checkbox, nhóm theo chức năng
 3. **Khuyến nghị kiểm thử** — Gợi ý top 10 điều cần quan tâm nhất khi test
 4. **Xuất Artifact** — Lưu toàn bộ phân tích vào file `.md`
+5. **Tạo file AC** — Tự động lưu bảng REQ→AC vào `requirements/[module]/ac.md`
+   - Hỏi user tên module nếu chưa có trong context
+   - Tạo folder `requirements/[module]/` nếu chưa tồn tại
+   - Nội dung file: bảng REQ→AC + checklist AC (dạng checkbox)
 
 ## Cấu trúc Output (Template Artifact)
 

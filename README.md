@@ -44,15 +44,15 @@ my-project/
 │   ├── commands/        ← copy từ kit
 │   └── skills/          ← copy từ kit
 ├── CLAUDE.md            ← tạo mới (xem mẫu bên dưới)
-├── requirements/        ← lưu spec, design, Q&A
+├── requirements/        ← lưu spec, AC, Q&A
 │   ├── module-01/
-│   │   ├── spec.md
-│   │   ├── qa-notes.md
-│   │   └── ...
+│   │   ├── spec.md      ← requirements từ PM/BrSE
+│   │   ├── ac.md        ← AC do QC extract (output từ /analyze_requirement_document)
+│   │   └── qna.md       ← Q&A sau khi confirm với team
 │   ├── module-02/
 │   │   ├── spec.md
-│   │   ├── qa-notes.md
-│   │   └── ...
+│   │   ├── ac.md
+│   │   └── qna.md
 │   └── ...
 └── test-cases/          ← lưu output test cases
     ├── module-01/
@@ -120,7 +120,7 @@ Nếu file đã có trong project folder: dùng `@filename` để attach thay v�
 
 **Kết hợp `/analyze_requirement_document` → `/generate_manual_testcases_rbt` để rút ngắn Bước 2:**
 1. Chạy `/analyze_requirement_document` với spec → AI extract AC từ requirements theo góc nhìn QC (happy path + negative + edge cases)
-2. QC review AC → lưu vào `requirements/module-xx/qa-notes.md`
+2. QC review AC → lưu vào `requirements/module-xx/ac.md`
 3. Chạy `/generate_manual_testcases_rbt`, paste AC + Q&A đã chốt vào context:
 
 ```
@@ -128,7 +128,8 @@ Dự án: [Tên dự án]
 Module: [Tên module]
 ---
 [spec]
-AC + Q&A đã chốt: [paste từ qa-notes.md]
+AC đã chốt: [paste từ ac.md]
+Q&A đã confirm: [paste từ qna.md nếu có]
 ---
 /generate_manual_testcases_rbt
 ```
