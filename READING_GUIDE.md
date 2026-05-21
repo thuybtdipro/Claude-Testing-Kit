@@ -2,6 +2,8 @@
 
 Đọc theo thứ tự dưới đây.
 
+> **Lưu ý:** Mở file này trong **VSCode** và bật Preview (`Cmd+Shift+V`) để các link dẫn đến file khác hoạt động được.
+
 ---
 
 ## Bước 1 — Hiểu kit làm được gì
