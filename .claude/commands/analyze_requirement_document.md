@@ -47,27 +47,21 @@ Agent cần thu thập từ user:
 1. **Tổng quan Ticket** — Bảng metadata (ID, Type, Priority, Status, Sprint, Assignee...)
 2. **User Story** — Trích xuất format "As a... I want... So that..."
 3. **Phạm vi áp dụng (Scope)** — Xác định rõ các module/page/component bị ảnh hưởng
-4. **Acceptance Criteria** — Phân rã từng AC thành các nhóm logic, bao gồm:
-   - Mô tả chi tiết từng AC
-   - Bảng so sánh (nếu có cột mới, field mới, rule mới)
+4. **Acceptance Criteria** — QC tự extract AC từ requirements (không phụ thuộc PM):
+   - Đọc từng REQ → sinh AC tương ứng: happy path + negative + edge cases
    - Phân biệt rõ **mặc định vs tùy chọn** (nếu applicable)
-   - **Cross-check REQ↔AC:** Liệt kê các REQ nào chưa có AC tương ứng → flag để QC confirm với PM
-   - **Gợi ý AC bổ sung** từ góc nhìn QC: negative cases, edge cases, error states mà PM chưa cover
-     (ví dụ: PM viết "đăng nhập thành công" → QC gợi ý: "email không tồn tại", "password sai", "account bị lock")
-   - **Output AC:** Danh sách AC đã chốt + gợi ý bổ sung → QC review và lưu vào `requirements/module-xx/qa-notes.md`
+   - Bao gồm các AC mà spec thường bỏ qua: error states, boundary conditions, concurrent access
+   - **Output AC:** Danh sách AC do QC extract → QC review và lưu vào `requirements/module-xx/qa-notes.md`
 
-   **AI phải trình bày cross-check theo mẫu sau:**
+   **AI phải trình bày AC theo mẫu sau:**
 
-   **Bảng REQ↔AC:**
-   | REQ | Mô tả REQ | AC hiện có | Trạng thái |
-   |-----|-----------|-----------|-----------|
-   | REQ-01 | Đăng nhập bằng email/password | AC1: Đăng nhập thành công | ✅ Có AC |
-   | REQ-02 | Hiển thị lỗi khi sai thông tin | — | ❌ Thiếu AC → Flag PM |
-
-   **Gợi ý AC bổ sung từ góc nhìn QC:**
-   - [ ] AC đề xuất: "Khi nhập email không tồn tại → hiển thị thông báo lỗi rõ ràng"
-   - [ ] AC đề xuất: "Sau 5 lần sai password → tài khoản bị khóa tạm thời"
-   - [ ] AC đề xuất: "Khi bấm Đăng nhập với form rỗng → highlight các field bắt buộc"
+   **Bảng REQ → AC (QC extract):**
+   | REQ | Mô tả REQ | AC được sinh | Loại |
+   |-----|-----------|------------|------|
+   | REQ-01 | Đăng nhập bằng email/password | AC1: Đăng nhập thành công với email và password hợp lệ | ✅ Happy path |
+   | REQ-01 | Đăng nhập bằng email/password | AC2: Hiển thị lỗi khi email không tồn tại trong hệ thống | 🔴 Negative |
+   | REQ-01 | Đăng nhập bằng email/password | AC3: Hiển thị lỗi khi nhập password sai | 🔴 Negative |
+   | REQ-02 | Bảo mật tài khoản | AC4: Khóa tài khoản sau 5 lần đăng nhập sai liên tiếp | 🔴 Edge case |
 
 ### Bước 3: Phân tích UI từ Mockup (nếu có)
 
@@ -173,8 +167,8 @@ Agent PHẢI xuất artifact theo cấu trúc sau:
 ## Quy tắc quan trọng
 
 - ❌ **KHÔNG sinh test cases** — workflow này chỉ phân tích, không tạo TC
-- ❌ **KHÔNG tự sinh AC** nếu spec không có — chỉ cross-check và gợi ý bổ sung từ góc nhìn QC
 - ❌ **KHÔNG tự sinh User Story** nếu spec không có — chỉ trích xuất nếu đã có sẵn
+- ✅ **PHẢI sinh AC** từ requirements — QC chịu trách nhiệm extract AC, không phụ thuộc PM
 - ❌ **KHÔNG tự đoán** business logic nếu document không nói rõ → đưa vào Ambiguities
 - ❌ **KHÔNG bỏ qua comments** trong Backlog ticket — comments thường chứa thông tin quan trọng bổ sung
 - ✅ **PHẢI đọc related tickets** nếu được reference trong AC
