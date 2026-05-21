@@ -1,10 +1,10 @@
 # Hướng Dẫn Đọc Kit — Trước Buổi Workshop
 
-Đọc theo thứ tự dưới đây. Tổng thời gian: **~15–20 phút**.
+Đọc theo thứ tự dưới đây.
 
 ---
 
-## Bước 1 — Hiểu kit làm được gì (5 phút)
+## Bước 1 — Hiểu kit làm được gì
 
 Mở [`README.md`](README.md), chỉ đọc các phần sau:
 - **Mục 1** — Yêu cầu cài đặt
@@ -16,7 +16,7 @@ Mở [`README.md`](README.md), chỉ đọc các phần sau:
 
 ---
 
-## Bước 2 — Xem output mẫu (3 phút)
+## Bước 2 — Xem output mẫu
 
 Mở [`sample/tc_login_sample.md`](sample/tc_login_sample.md).
 
@@ -24,7 +24,7 @@ Mở [`sample/tc_login_sample.md`](sample/tc_login_sample.md).
 
 ---
 
-## Bước 3 — Đọc 1 workflow (7 phút)
+## Bước 3 — Đọc 1 workflow
 
 Chọn **1 trong 3** file dưới đây để đọc:
 
