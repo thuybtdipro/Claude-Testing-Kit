@@ -135,6 +135,8 @@ AC + Q&A đã chốt: [paste từ qa-notes.md]
 
 → Bước 2 chỉ xác định luồng + hỏi thêm nếu còn thiếu, không phân tích Ambiguities lại từ đầu.
 
+**Xem mẫu output TC:** [`sample/tc_login_sample.md`](sample/tc_login_sample.md) — ví dụ bộ TC hoàn chỉnh cho module Login (UI Visual + Functional + Validation + Edge case)
+
 **Chọn model phù hợp với workflow:**
 
 | Model | Workflow phù hợp |

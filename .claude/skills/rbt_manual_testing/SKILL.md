@@ -273,17 +273,17 @@ Quy trình bài bản, tuần tự cho module phức tạp. Bao gồm phân tíc
 **Agent phải:**
 1. Map mỗi Module/Rule với mã Yêu cầu (REQ-01, REQ-02...)
 2. Cross-check xem có yêu cầu nào bị thiếu trong danh sách phân rã (Gap Analysis)
-2b. Nếu AC được cung cấp trong input:
-    - Map từng AC item vào Module tương ứng
-    - Đảm bảo mỗi AC có ít nhất 1 Scenario cover → bổ sung nếu thiếu
-    - Nếu không có AC → bỏ qua, tiếp tục step 3
-3. Liệt kê High-Level Test Scenarios cho từng Module, tập trung:
+3. Nếu AC được cung cấp trong input:
+   - Map từng AC item vào Module tương ứng
+   - Đảm bảo mỗi AC có ít nhất 1 Scenario cover → bổ sung nếu thiếu
+   - Nếu không có AC → bỏ qua, tiếp tục step 4
+4. Liệt kê High-Level Test Scenarios cho từng Module, tập trung:
    - Security / phân quyền
    - UI Validation
    - Business Logic
    - Data Integrity
    - Error Handling
-4. **Chờ user review** danh sách scenarios trước khi sinh test case chi tiết
+5. **Chờ user review** danh sách scenarios trước khi sinh test case chi tiết
 
 **Output:** Traceability Matrix + High-Level Test Scenarios.
 

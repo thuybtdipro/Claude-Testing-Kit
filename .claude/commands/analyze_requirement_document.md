@@ -56,6 +56,19 @@ Agent cần thu thập từ user:
      (ví dụ: PM viết "đăng nhập thành công" → QC gợi ý: "email không tồn tại", "password sai", "account bị lock")
    - **Output AC:** Danh sách AC đã chốt + gợi ý bổ sung → QC review và lưu vào `requirements/module-xx/qa-notes.md`
 
+   **AI phải trình bày cross-check theo mẫu sau:**
+
+   **Bảng REQ↔AC:**
+   | REQ | Mô tả REQ | AC hiện có | Trạng thái |
+   |-----|-----------|-----------|-----------|
+   | REQ-01 | Đăng nhập bằng email/password | AC1: Đăng nhập thành công | ✅ Có AC |
+   | REQ-02 | Hiển thị lỗi khi sai thông tin | — | ❌ Thiếu AC → Flag PM |
+
+   **Gợi ý AC bổ sung từ góc nhìn QC:**
+   - [ ] AC đề xuất: "Khi nhập email không tồn tại → hiển thị thông báo lỗi rõ ràng"
+   - [ ] AC đề xuất: "Sau 5 lần sai password → tài khoản bị khóa tạm thời"
+   - [ ] AC đề xuất: "Khi bấm Đăng nhập với form rỗng → highlight các field bắt buộc"
+
 ### Bước 3: Phân tích UI từ Mockup (nếu có)
 
 Nếu user cung cấp mockup/screenshot:
