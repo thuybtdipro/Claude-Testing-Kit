@@ -47,15 +47,15 @@ Agent cần thu thập từ user:
 1. **Tổng quan Ticket** — Bảng metadata (ID, Type, Priority, Status, Sprint, Assignee...)
 2. **User Story** — Trích xuất format "As a... I want... So that..."
 3. **Phạm vi áp dụng (Scope)** — Xác định rõ các module/page/component bị ảnh hưởng
-4. **Acceptance Criteria** — QC tự extract AC từ requirements (không phụ thuộc PM):
-   - Đọc từng REQ → sinh AC tương ứng: happy path + negative + edge cases
-   - Phân biệt rõ **mặc định vs tùy chọn** (nếu applicable)
-   - Bao gồm các AC mà spec thường bỏ qua: error states, boundary conditions, concurrent access
-   - **Output AC:** Danh sách AC do QC extract → QC review và lưu vào `requirements/[module]/ac.md`
+4. **Acceptance Criteria** — Đọc AC do PM tạo trong requirement document và confirm:
+   - Đọc từng REQ → map với AC tương ứng do PM cung cấp
+   - Kiểm tra coverage: PM đã cover happy path, negative, edge cases chưa?
+   - Các AC bị thiếu hoặc mơ hồ → đưa vào mục Ambiguities (Bước 5), không tự bổ sung
+   - **Output AC:** Danh sách AC do PM tạo → QC confirm và lưu vào `requirements/[module]/ac.md`
 
-   **AI phải trình bày AC theo mẫu sau:**
+   **AI phải đọc AC do PM tạo và tổ chức vào bảng mapping sau để QC review:**
 
-   **Bảng REQ → AC (QC extract):**
+   **Bảng REQ → AC (PM tạo, QC confirm):**
    | REQ | Mô tả REQ | AC được sinh | Loại |
    |-----|-----------|------------|------|
    | REQ-01 | Đăng nhập bằng email/password | AC1: Đăng nhập thành công với email và password hợp lệ | ✅ Happy path |
@@ -172,7 +172,7 @@ Agent PHẢI xuất artifact theo cấu trúc sau:
 
 - ❌ **KHÔNG sinh test cases** — workflow này chỉ phân tích, không tạo TC
 - ❌ **KHÔNG tự sinh User Story** nếu spec không có — chỉ trích xuất nếu đã có sẵn
-- ✅ **PHẢI sinh AC** từ requirements — QC chịu trách nhiệm extract AC, không phụ thuộc PM
+- ✅ **PHẢI đọc và confirm AC** do PM tạo — QC không tự sinh AC, chỉ review và flag những gì thiếu/mơ hồ vào Ambiguities
 - ❌ **KHÔNG tự đoán** business logic nếu document không nói rõ → đưa vào Ambiguities
 - ❌ **KHÔNG bỏ qua comments** trong Backlog ticket — comments thường chứa thông tin quan trọng bổ sung
 - ✅ **PHẢI đọc related tickets** nếu được reference trong AC
