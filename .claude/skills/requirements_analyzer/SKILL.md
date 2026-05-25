@@ -1,55 +1,67 @@
 ---
 name: requirements_analyzer
-description: Kỹ năng phân tích trang web/module và sinh ra tài liệu Yêu cầu (Requirements Document/User Stories) chuẩn mực.
+description: Skill phân tích requirement document có sẵn (Backlog ticket, user story, .doc) — hướng dẫn cách đọc, extract AC, và phát hiện ambiguities.
 ---
 
-# Kỹ năng Phân tích Yêu cầu (Requirements Analyzer)
+# Requirements Analyzer
 
-Kỹ năng này cung cấp các hướng dẫn chi tiết để AI (Claude Code) có thể chuyển đổi giao diện UI hoặc cấu trúc DOM/HTML của một trang web thành các tài liệu Yêu cầu rõ ràng, chi tiết, phục vụ trực tiếp cho QA, Tester và Developer.
+## Mục tiêu
 
-## 1. Mục tiêu cốt lõi
-- Xây dựng tài liệu yêu cầu bám sát thực tế hệ thống đang chạy.
-- Đảm bảo tính nhất quán, tính bao quát cho cả Happy Path và Edge Cases (Trường hợp ngoại lệ/báo lỗi).
-- Định dạng xuất ra một cách chuyên nghiệp (Sử dụng cấu trúc Artifact).
+Hướng dẫn AI cách đọc và phân tích **requirement document có sẵn** (Backlog ticket, user story, .doc file) — không phải tự sinh requirements từ UI.
 
-## 2. Quy trình trích xuất thông tin
-Khi được yêu cầu tạo Requirements từ một trang web:
-1. **Phân tích Khung giao diện (Layout Analysis):** Xác định các phần Header, Footer, Sidebar, và Nội dung chính (Main Content).
-2. **Thu thập Form & Inputs:**
-   - Tìm tất cả các trường nhập liệu (`input`, `select`, `textarea`).
-   - Ghi nhận thuộc tính `type` (text, email, password, number), `required`, `maxlength`, `minlength`, `pattern`.
-3. **Thu thập Các nút tương tác (Buttons/Links/Actions):**
-   - Xác định chức năng của từng nút (Save, Submit, Cancel, Delete, Edit).
-   - Các cảnh báo, thông báo (Alerts, Toasts, Validation Messages) xuất hiện khi tương tác lỗi.
-4. **Trích xuất Luồng công việc (Workflows):**
-   - Sự phụ thuộc giữa các thành phần (VD: Nút Submit chỉ enable khi đã tích chọn Checkbox "Tôi đồng ý").
+---
 
-## 3. Cấu trúc Tài liệu Yêu cầu Đầu ra (Output Format)
-Tài liệu cần được format theo Markdown chuyên nghiệp hoặc lưu dưới dạng Artifact (`requirements_spec.md`).
+## Nguyên tắc cốt lõi
 
-**Nội dung bắt buộc phải có:**
+- **Đọc kỹ trước khi phân tích** — đọc toàn bộ document, kể cả comments và attachments
+- **Không tự đoán business logic** — những gì không được ghi rõ trong document → đưa vào Ambiguities
+- **AC do PM tạo** — QC đọc, confirm và map AC vào requirements, không tự sinh AC mới
+- **Ưu tiên độ chính xác** — thà hỏi clarify hơn là giả định sai
 
-### 3.1. Tổng quan (Overview)
-Mô tả tóm tắt tính năng và mục đích của trang web/module.
+---
 
-### 3.2. Yêu cầu Chức năng (Functional Requirements)
-Chia thành các **User Stories** hoặc **Use Cases**:
-- **Tên tính năng** (Ví dụ: Chức năng Đăng nhập)
-- **Mô tả:** "Là một người dùng, tôi muốn... để có thể..."
-- **Tiêu chí chấp nhận (Acceptance Criteria):** Ghi rõ các điều kiện cần thỏa mãn.
+## Kỹ thuật phân tích
 
-### 3.3. Đặc tả Trường Dữ liệu (Field Specifications)
-Đây là phần cốt lõi dành cho Automation Tester:
-* Dùng bảng Markdown (*Markdown Table*) để liệt kê:
-  - Tên Trường (Label)
-  - Loại (Type UI)
-  - Validation Rules (Bắt buộc / Mặc định / Giới hạn độ dài).
-  - Ghi chú (Notes).
+### 1. Đọc hiểu scope
 
-### 3.4. Các luồng xử lý và Báo lỗi (Business Rules & Validations)
-Liệt kê chi tiết các Validation Message mong đợi khi người dùng nhập sai dữ liệu.
+- Xác định rõ: tính năng này **thêm mới**, **chỉnh sửa**, hay **xóa** behavior hiện tại?
+- Các module/page nào bị ảnh hưởng — trực tiếp và gián tiếp?
+- Ai là actor? (user thường, admin, hệ thống tự động?)
 
-## 4. Bắt buộc (Strict Rules)
-- Luôn viết bằng **Tiếng Việt**.
-- Không tự suy diễn các yêu cầu nghiệp vụ phức tạp nếu không có căn cứ từ UI. Nếu thiếu logic, hãy liệt kê chúng vào mục "Câu hỏi/Làm rõ với user".
-- Nếu có Playwright MCP, ưu tiên mở browser thật để screenshot/capture giao diện nếu cần.
+### 2. Map AC vào Requirements
+
+Với mỗi REQ trong document:
+- Tìm AC tương ứng mà PM đã viết
+- Kiểm tra AC đã cover: happy path, negative, edge cases chưa?
+- REQ nào thiếu AC → đánh dấu là Ambiguity, không tự bổ sung
+
+### 3. Phát hiện Ambiguities — dấu hiệu cần tìm
+
+| Dấu hiệu | Ví dụ |
+|----------|-------|
+| Từ khóa mơ hồ | "where applicable", "as needed", "tương tự như", "v.v." |
+| Validation thiếu | Không ghi min/max, format, required/optional |
+| Behavior edge case chưa mô tả | Mất mạng, dữ liệu trống, concurrent access |
+| Inconsistency với mockup | Tên field, format, layout khác nhau |
+| Threshold chưa định nghĩa | "tiếp cận deadline" — bao nhiêu ngày? |
+| Conflict với requirement cũ | REQ mới mâu thuẫn với behavior hiện tại |
+
+### 4. Phân biệt Business Rules vs UI Rules
+
+- **Business rule:** "Tài khoản bị khóa sau 5 lần sai" → test kỹ, ảnh hưởng nghiệp vụ
+- **UI rule:** "Nút Submit disabled khi form chưa đủ dữ liệu" → test validation behavior
+
+### 5. Đọc dependencies
+
+- Ticket phụ thuộc → đọc và tóm tắt
+- AC từ ticket phụ thuộc có thể ảnh hưởng scope của ticket chính
+- Ghi rõ rule nào đến từ ticket nào
+
+---
+
+## Những gì KHÔNG làm
+
+- ❌ Tự sinh AC khi PM chưa viết → đưa vào Ambiguities
+- ❌ Tự đoán business logic khi document không nói rõ
+- ❌ Bỏ qua comments trong Backlog ticket
+- ❌ Giả định inconsistency giữa document và mockup là lỗi typo — ghi rõ để confirm

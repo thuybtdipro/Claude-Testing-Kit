@@ -35,9 +35,8 @@ Sử dụng skill này khi:
 
 **KHÔNG** sử dụng skill này khi:
 
-- Cần sinh automation code → dùng `qa_automation_engineer`
-- Cần inspect DOM / sinh locator → dùng `ui_debug_agent` / `smart_locator_agent`
-- Chỉ cần sinh test data → dùng `test_data_generator`
+- Chỉ cần sinh test data riêng lẻ → dùng `/generate_test_data`
+- Cần chuẩn hóa bug report → dùng `/generate_bug_report`
 
 ---
 

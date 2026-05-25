@@ -1,16 +1,11 @@
 ---
 description: Sinh test data có cấu trúc, unique, traceable cho test cases. Hỗ trợ UI forms, API payloads, data-driven tests.
-skills:
-  - test_data_generator
 ---
 
 # /generate_test_data — Sinh Test Data Có Cấu Trúc
 
 > User cung cấp feature/module hoặc test cases cần sinh data.
 > AI phân tích fields, constraints, sinh bộ data đầy đủ (positive, negative, boundary, edge cases) với format sẵn sàng sử dụng.
-
-> **BẮT BUỘC (MANDATORY):** Trước khi bắt đầu, PHẢI nạp và đọc kỹ:
-> - **Skill:** `.claude/skills/test_data_generator/SKILL.md` — Quy tắc sinh data
 
 ---
 

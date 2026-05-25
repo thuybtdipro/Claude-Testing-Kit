@@ -10,7 +10,6 @@ Bộ công cụ AI-assisted manual testing cho Claude Code. Tập trung vào sin
 |-------|------|-------|
 | `rbt_manual_testing` | `.claude/skills/rbt_manual_testing/SKILL.md` | Master skill sinh manual test cases — 2 modes: QUICK và FULL RBT (6 bước) |
 | `requirements_analyzer` | `.claude/skills/requirements_analyzer/SKILL.md` | Phân tích UI/DOM sinh requirements document |
-| `test_data_generator` | `.claude/skills/test_data_generator/SKILL.md` | Sinh test data unique, traceable (positive, negative, boundary, edge cases) |
 | `bug_reporter` | `.claude/skills/bug_reporter/SKILL.md` | Chuẩn hóa bug reports — severity/priority, steps to reproduce, output sẵn sàng cho Backlog |
 
 ---
@@ -45,6 +44,7 @@ Gọi bằng `/tên_command` trong Claude Code.
 |---------|-------------|
 | `/generate_test_data` | Sinh test data có cấu trúc cho forms, API |
 | `/generate_bug_report` | Chuẩn hóa bug report sẵn sàng paste vào Backlog |
+| `/export_to_drive` | Xuất bảng từ file markdown lên Google Sheet qua Drive MCP |
 
 ---
 
