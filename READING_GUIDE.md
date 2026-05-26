@@ -55,10 +55,3 @@ Chọn **1 trong 3** file dưới đây để đọc:
 - `.claude/skills/` — các file SKILL.md dài, sẽ giải thích trực tiếp
 - Các workflows còn lại — sẽ giới thiệu ở giai đoạn sau
 
----
-
-## Sau khi đọc xong
-
-Điền feedback vào Google Form: **[link]**
-
-Không cần hiểu hết — ghi lại những gì bạn thấy chưa rõ hoặc muốn hỏi thêm. Đó là input quý nhất cho buổi workshop.
