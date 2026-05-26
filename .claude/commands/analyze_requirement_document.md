@@ -38,7 +38,7 @@ Agent cần thu thập từ user:
    - Nếu file .doc format HTML (export từ tool bất kỳ): parse HTML để trích xuất nội dung
    - Xác định metadata nếu có: ID, Type, Priority, Status, Reporter, Assignee
 2. **Đọc mockup/screenshot** nếu có — phân tích UI layout, components, fields
-3. **Kiểm tra related tickets** nếu có trong cùng thư mục hoặc được user cung cấp
+3. **Kiểm tra tài liệu liên quan** nếu có trong cùng thư mục hoặc được user cung cấp
    - Đọc và tóm tắt dependencies
 4. **Xác nhận** đã nắm được bối cảnh → tiếp tục phân tích
 

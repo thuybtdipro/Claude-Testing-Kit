@@ -28,7 +28,7 @@ Gọi bằng `/tên_command` trong Claude Code.
 ### Phân tích & Lập kế hoạch
 | Command | Khi nào dùng |
 |---------|-------------|
-| `/analyze_requirement_document` | Phân tích Backlog ticket / doc — extract AC từ requirements, phát hiện ambiguities — KHÔNG sinh TC |
+| `/analyze_requirement_document` | Phân tích requirement document — confirm AC do PM tạo, phát hiện ambiguities — KHÔNG sinh TC |
 | `/generate_cross_module_test_plan` | Phân tích luồng đa module, sinh ma trận kết hợp (Pairwise) |
 
 ### Thực thi & Theo dõi
@@ -56,11 +56,11 @@ Gọi bằng `/tên_command` trong Claude Code.
 ```
 → Cung cấp requirements doc → Agent chạy 6 bước → Bảng TC Markdown
 
-### Phân tích ticket trước khi viết test
+### Phân tích requirement trước khi viết test
 ```
 /analyze_requirement_document
 ```
-→ Cung cấp Backlog ticket / doc → Nhận danh sách ambiguities + AC checklist
+→ Cung cấp requirement document → Nhận danh sách ambiguities + AC checklist
 
 ### Sinh test cases nhanh (scope nhỏ)
 ```
