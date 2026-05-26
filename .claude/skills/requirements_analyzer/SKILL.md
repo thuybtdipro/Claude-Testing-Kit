@@ -1,13 +1,13 @@
 ---
 name: requirements_analyzer
-description: Skill phân tích requirement document có sẵn (Backlog ticket, user story, .doc) — hướng dẫn cách đọc, extract AC, và phát hiện ambiguities.
+description: Skill phân tích requirement document có sẵn (Google Drive, Docs, Figma, .md, .doc, Backlog ticket) — hướng dẫn cách đọc, extract AC, và phát hiện ambiguities.
 ---
 
 # Requirements Analyzer
 
 ## Mục tiêu
 
-Hướng dẫn AI cách đọc và phân tích **requirement document có sẵn** (Backlog ticket, user story, .doc file) — không phải tự sinh requirements từ UI.
+Hướng dẫn AI cách đọc và phân tích **requirement document có sẵn** (Google Drive, Docs, Figma, .md, .doc, Backlog ticket) — không phải tự sinh requirements từ UI.
 
 ---
 
@@ -53,9 +53,9 @@ Với mỗi REQ trong document:
 
 ### 5. Đọc dependencies
 
-- Ticket phụ thuộc → đọc và tóm tắt
-- AC từ ticket phụ thuộc có thể ảnh hưởng scope của ticket chính
-- Ghi rõ rule nào đến từ ticket nào
+- Tài liệu phụ thuộc → đọc và tóm tắt
+- AC từ tài liệu phụ thuộc có thể ảnh hưởng scope của tài liệu chính
+- Ghi rõ rule nào đến từ tài liệu nào
 
 ---
 
@@ -63,5 +63,5 @@ Với mỗi REQ trong document:
 
 - ❌ Tự sinh AC khi PM chưa viết → đưa vào Ambiguities
 - ❌ Tự đoán business logic khi document không nói rõ
-- ❌ Bỏ qua comments trong Backlog ticket
+- ❌ Bỏ qua comments hoặc notes đính kèm trong document
 - ❌ Giả định inconsistency giữa document và mockup là lỗi typo — ghi rõ để confirm
