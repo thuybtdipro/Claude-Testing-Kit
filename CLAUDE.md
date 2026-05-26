@@ -79,6 +79,28 @@ Gọi bằng `/tên_command` trong Claude Code.
 
 ---
 
+## Roadmap — Backlog Integration
+
+Tự động tạo Backlog ticket từ output của `/generate_bug_report` — thay vì copy-paste markdown thủ công.
+
+### Điều kiện trước khi làm
+
+- Team đã dùng `/generate_bug_report` ổn định — output quality đủ tin cậy để submit thẳng
+- Có Backlog API token (lưu an toàn, không commit vào repo)
+
+### Hướng thực hiện
+
+1. **Build Backlog MCP server** — wrap Backlog REST API (`POST /api/v2/issues`) thành MCP tool
+2. **Thêm command `/submit_bug_to_backlog`** — nhận output từ `/generate_bug_report`, map field sang Backlog issue format, gọi MCP tạo ticket
+3. **Field mapping cần config theo dự án:** project ID, issue type ID, category, milestone, custom fields
+
+### Lưu ý
+
+- Giữ bước QC review trước khi submit — không auto-create không qua xác nhận
+- API token đọc từ biến môi trường, không hardcode trong command file
+
+---
+
 ## Roadmap — Khi mở rộng sang Automation
 
 Kit hiện tại chỉ bao gồm **manual testing**. Khi muốn mở rộng sang automation, thực hiện theo thứ tự sau:
